@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Project
+{% endblock %}
+
+{% block main %}
+    <h1>Add New Project</h1>
+    <form action="/add-project" method="POST">
+        <div class="mb-3">
+            <label for="name" class="form-label">Project Name</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Project Description</label>
+            <input type="text" class="form-control" id="description" name="description" required>
+        </div>
+        <div class="mb-3">
+            <label for="status" class="form-label">Project Status</label>
+            <select class="form-control" id="status" name="status" required>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+                <option value="Pending">Pending</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Project</button>
+    </form>
+{% endblock %}
