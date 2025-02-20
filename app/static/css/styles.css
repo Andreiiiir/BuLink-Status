@@ -1,0 +1,80 @@
+/* General Alert Styling */
+.alert.error {
+    color: red;
+    background-color: #f2ecec;
+}
+
+.alert.error {
+    color: green;
+    background-color: #f2ecec;
+}
+
+/* Logo */
+.logo {
+    max-width: 100%;
+    height: auto;
+    max-height: 80px;
+}
+
+/* Common Form Styling for both login and register */
+.auth-form {
+    padding: 3rem;
+}
+
+/* Common label for both login and register */
+.form-label {
+
+}
+
+/* Common Input field styling for both login and register */
+.auth-input {
+    font-size: 1.1rem;
+    padding: 5px;
+    margin-top: 10px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+}
+
+.auth-input:focus {
+    border-color: #000000;
+}
+
+/* Common button styling for both login and register */
+.auth-btn {
+    margin-top:10px;
+    font-size: 1.1rem;
+}
+
+.auth-btn:hover {
+}
+
+
+
+
+/* Register Link Styling */
+.auth-register-link {
+    color: #000000;
+}
+
+/* Register text styling */
+.auth-register-text {
+    margin-left:3rem;
+}
+
+.auth-register-link:hover {
+    text-decoration: underline;
+}
+
+/* Make the table containers scrollable */
+.table-container {
+    max-height: 400px;  /* You can adjust this height */
+    overflow-y: auto;   /* Vertical scrolling if content exceeds max height */
+    margin-bottom: 20px; /* Add space between sections */
+}
+
+/* Prevent the textarea from expanding too much */
+textarea {
+    resize: none;       /* Prevent resizing of textarea */
+    overflow-y: auto;   /* Enable scrollbars if content exceeds the height */
+    height: auto;       /* Ensure the textarea does not take excessive height */
+}

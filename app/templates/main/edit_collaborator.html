@@ -1,0 +1,38 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} Edit Collaborator {% endblock %}
+
+{% block content %}
+  <h2>Edit Collaborator</h2>
+  <form method="POST" action="{{ url_for('main.edit_collaborator', collab_id=collaborator.id) }}">
+    {{ form.hidden_tag() }}
+    
+    <div class="form-group">
+      <label for="type_">Type</label>
+      {{ form.type_(class="form-control", id="type_") }}
+    </div>
+    
+    <div class="form-group">
+      <label for="name">Name</label>
+      {{ form.name(class="form-control", id="name") }}
+    </div>
+    
+    <div class="form-group">
+      <label for="particularities">Description</label>
+      {{ form.particularities(class="form-control", id="particularities") }}
+    </div>
+    
+    <div class="form-group">
+      <label for="email">Email</label>
+      {{ form.email(class="form-control", id="email") }}
+    </div>
+    
+    <div class="form-group">
+      <label for="othercontact">Other Contact</label>
+      {{ form.othercontact(class="form-control", id="othercontact") }}
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+    <a href="{{ url_for('main.homepage') }}" class="btn btn-secondary">Cancel</a>
+  </form>
+{% endblock %}

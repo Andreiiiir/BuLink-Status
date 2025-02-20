@@ -1,0 +1,97 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Logout Button at the Top Right -->
+    <div class="row">
+        <div class="col text-end">
+            <a href="{{ url_for('auth.logout') }}" class="btn btn-danger">Logout</a>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <!-- Projects and Collaborators Section occupy the left half (6 out of 12 columns) -->
+        <div class="col-md-6">
+            <!-- Projects Section -->
+            <h3>Projects 
+                <a href="{{ url_for('main.add_project') }}" class="btn btn-success btn-sm float-right ml-2">Add Project</a>
+            </h3>
+            <div class="table-container">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Particularities</th>
+                            <th>Collaborators</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for project in projects %}
+                        <tr>
+                            <td>{{ project.name }}</td>
+                            <td>{{ project.particularities }}</td>
+                            <td>{{ project.pcollaborators }}</td>
+                            <td>{{ project.status }}</td>
+                            <td>
+                                <a href="{{ url_for('main.edit_project', project_id=project.id) }}" class="btn btn-primary btn-sm">Edit</a>
+                                <form action="{{ url_for('main.delete_project', project_id=project.id) }}" method="post" style="display:inline;">
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Collaborators Section -->
+            <h3>Collaborators 
+                <a href="{{ url_for('main.add_collaborator') }}" class="btn btn-success btn-sm float-right ml-2">Add Collaborator</a>
+            </h3>
+            <div class="table-container">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Name</th>
+                            <th>Particularities</th>
+                            <th>Email</th>
+                            <th>Other Contact</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for collaborator in collaborators %}
+                        <tr>
+                            <td>{{ collaborator.type_ }}</td>
+                            <td>{{ collaborator.name }}</td>
+                            <td>{{ collaborator.particularities }}</td>
+                            <td>{{ collaborator.email }}</td>
+                            <td>{{ collaborator.othercontact }}</td>
+                            <td>
+                                <a href="{{ url_for('main.edit_collaborator', collab_id=collaborator.id) }}" class="btn btn-primary btn-sm">Edit</a>
+                                <form action="{{ url_for('main.delete_collaborator', collab_id=collaborator.id) }}" method="post" style="display:inline;">
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Notes Section occupies the right half (6 out of 12 columns) -->
+        <div class="col-md-6">
+            <h3>Notes</h3>
+            <textarea id="note-area" class="form-control" rows="15">{{ user_notes.content if user_notes else '' }}</textarea>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/autosave_notes.js') }}"></script>
+{% endblock %}

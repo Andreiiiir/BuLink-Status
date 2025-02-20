@@ -1,0 +1,14 @@
+# Ignore Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore Node.js dependencies
+node_modules/
+
+# Ignore Databases
+*.sqlite3
+*.db
+
+# Ignore VS Code settings
+.vscode/
