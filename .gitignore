@@ -7,8 +7,9 @@ __pycache__/
 *.sqlite3
 *.db
 
-# Ignore Node.js dependencies
-node_modules/
+# Ignore Virtual Environment
+venv/
+env/
 
 # Ignore VS Code settings
 .vscode/
