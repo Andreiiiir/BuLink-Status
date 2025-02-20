@@ -3,12 +3,16 @@ __pycache__/
 *.pyc
 *.pyo
 
-# Ignore Node.js dependencies
-node_modules/
-
 # Ignore Databases
 *.sqlite3
 *.db
 
+# Ignore Node.js dependencies
+node_modules/
+
 # Ignore VS Code settings
 .vscode/
+
+# Ignore OS/system files
+.DS_Store
+Thumbs.db
